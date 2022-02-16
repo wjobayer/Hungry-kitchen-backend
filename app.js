@@ -4,7 +4,7 @@ const cors = require("cors");
 const connectDB = require("./database/db");
 const adminRouter = require("./router/adminRouter");
 const userRouter = require("./router/userRouter");
-const partnerRouter = require("./router/partnerRouter");
+const resturantRouter = require("./router/resturantRouter");
 
 // port number
 const port = process.env.PORT || 8000;
@@ -19,7 +19,7 @@ app.use(cors());
 // router setup
 app.use("/", adminRouter);
 app.use("/user", userRouter);
-app.use("/partner", partnerRouter);
+app.use("/partner", resturantRouter);
 app.use("/rider", riderRouter);
 
 

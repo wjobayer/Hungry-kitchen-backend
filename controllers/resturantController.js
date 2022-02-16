@@ -1,4 +1,4 @@
-const getPartner = async (req, res) =>{
+const getResturant = async (req, res) =>{
     try {
         res.status(200).json("This is a partner page") 
     } catch (error) {
@@ -7,5 +7,5 @@ const getPartner = async (req, res) =>{
 }
 
 module.exports = {
-    getPartner,
+    getResturant,
 }
