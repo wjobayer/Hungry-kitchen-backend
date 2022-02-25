@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 require("dotenv").config();
-const db = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@cluster0.deaij.mongodb.net/color_gradient?retryWrites=true&w=majority `;
-
+// const db = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@cluster0.deaij.mongodb.net/color_gradient?retryWrites=true&w=majority `;
+const db = "mongodb://localhost:27017/hungry-kitchen"
 const connectDB = async () => {
   try {
     await mongoose.connect(db);

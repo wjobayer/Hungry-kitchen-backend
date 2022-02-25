@@ -5,7 +5,7 @@ const connectDB = require("./database/db");
 const adminRouter = require("./router/adminRouter");
 const userRouter = require("./router/userRouter");
 const resturantRouter = require("./router/resturantRouter");
-
+const riderRouter = require("./router/riderRouter");
 // port number
 const port = process.env.PORT || 8000;
 
