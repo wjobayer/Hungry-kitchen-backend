@@ -10,8 +10,11 @@ const userSchema = mongoose.Schema(
       type: String,
       trim: true,
     },
-    password:{
+    password: {
       type:String,
+    },
+    confirmPassword: {
+      type:String
     },
     phoneNumber: {
       type: Number,
