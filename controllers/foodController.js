@@ -1,18 +1,21 @@
+const Food = require("../models/foodSchema");
+
 // get food api
 const getFood = async (req, res) => {
   try {
-    res.status(200).json("getFood");
+    const foods = await Food.find({});
+    res.status(200).json(foods);
   } catch (error) {
     res.status(400).json(error.message);
   }
-}; 
+};
 
 // post Food api
 const addFood = async (req, res) => {
   try {
-    console.log("body", req.body)
-    console.log("files", req.files)
-    res.status(200).json("postFood");
+    const food = Food(req.body);
+    const foodData = await food.save();
+    res.status(200).json(foodData);
   } catch (error) {
     res.status(400).json(error.message);
   }
