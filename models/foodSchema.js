@@ -1,5 +1,4 @@
 const mongoose = require("mongoose");
-
 const foodSchema = mongoose.Schema(
   {
     foodName: {
@@ -10,11 +9,11 @@ const foodSchema = mongoose.Schema(
       type: Number,
       trim: true,
     },
-    FoodCategory: {
+    foodCategory: {
       type: String,
       trim: true,
     },
-    FoodArea: {
+    foodArea: {
       type: String,
       trim: true,
     },

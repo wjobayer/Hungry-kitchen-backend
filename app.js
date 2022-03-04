@@ -1,7 +1,6 @@
 const express = require("express");
 const app = express();
 const cors = require("cors");
-// const fileUpload = require("express-fileupload");
 const connectDB = require("./database/db");
 const adminRouter = require("./router/adminRouter");
 const userRouter = require("./router/userRouter");
@@ -27,8 +26,7 @@ app.use("/partner", resturantRouter);
 app.use("/rider", riderRouter);
 app.use("/food", foodRouter);
 
-
-// Error Handling middlewares
+// Error Handling middleware
 app.use(notFound)
 app.use(errorHandler)
 
