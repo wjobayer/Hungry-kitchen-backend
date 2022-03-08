@@ -23,6 +23,7 @@ app.use(cors());
 app.get("/", (req, res)=>{
   res.send("Server is running")
 })
+
 // router setup
 app.use("/users", userRouter);
 app.use("/admin", adminRouter);
