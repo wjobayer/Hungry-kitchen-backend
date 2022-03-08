@@ -21,7 +21,49 @@ const addFood = async (req, res) => {
   }
 };
 
+// food update api
+const foodUpdateById = async (req, res) => {
+  try {
+    const { foodName, foodCategory, foodPrice, foodArea, foodPic, foodDesc } =
+      req.body;
+    const _id = req.params.id;
+    const updateFood = await Food.findByIdAndUpdate(
+      { _id },
+      {
+        $set: {
+          foodName,
+          foodCategory,
+          foodArea,
+          foodPrice,
+          foodPic,
+          foodDesc,
+        },
+      },
+      {
+        new:true
+      },
+    );
+    const saveUpdateFood = await updateFood.save()
+    res.status(200).json(saveUpdateFood);
+  } catch (error) {
+    res.status(400).json(error.message);
+  }
+};
+
+// food delete api
+const foodDeleteById = async (req, res) => {
+  try {
+    const _id = req.params.id;
+    const deleteFood = await Food.findByIdAndDelete(_id);
+    res.status(200).json(deleteFood);
+  } catch (error) {
+    res.status(400).json(error.message);
+  }
+};
+
 module.exports = {
   getFood,
   addFood,
+  foodUpdateById,
+  foodDeleteById,
 };

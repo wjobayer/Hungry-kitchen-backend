@@ -15,7 +15,7 @@ const postUser = async (req, res) => {
 const getUser = async (req, res) => {
   try {
     const user = await User.find({});
-    res.status(201).json(user);
+    res.status(201).json("user");
   } catch (error) {
     res.status(400).json(error.message);
   }
@@ -56,6 +56,7 @@ const updateUserById = async (req, res) => {
     res.status(400).json(error.message);
   }
 };
+
 module.exports = {
   postUser,
   getUser,

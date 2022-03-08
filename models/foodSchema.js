@@ -1,6 +1,10 @@
 const mongoose = require("mongoose");
 const foodSchema = mongoose.Schema(
   {
+    resturantName:{
+      type: String,
+      trim: true,
+    },
     foodName: {
       type: String,
       trim: true,

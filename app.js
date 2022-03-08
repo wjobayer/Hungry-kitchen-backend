@@ -7,6 +7,7 @@ const userRouter = require("./router/userRouter");
 const resturantRouter = require("./router/resturantRouter");
 const riderRouter = require("./router/riderRouter");
 const foodRouter = require("./router/foodRouter");
+const orderRouter = require("./router/orderRouter");
 const { notFound, errorHandler } = require("./middleware/errorMiddleware");
 
 // port number
@@ -20,16 +21,17 @@ app.use(express.json());
 app.use(cors());
 
 // router setup
-app.use("/", adminRouter);
-app.use("/user", userRouter);
+app.use("/users", userRouter);
+app.use("/admin", adminRouter);
 app.use("/partner", resturantRouter);
 app.use("/rider", riderRouter);
 app.use("/food", foodRouter);
+app.use("/order", orderRouter);
 
 // Error Handling middleware
-app.use(notFound)
-app.use(errorHandler)
+app.use(notFound);
+app.use(errorHandler);
 
-app.listen(port, ()=>{
-    console.log(`server running port is ${port}`);
-})
+app.listen(port, () => {
+  console.log(`server running port is ${port}`);
+});
