@@ -23,7 +23,7 @@ const getFoodById = async (req, res) => {
 const addFood = async (req, res) => {
   try {
     const food = Food(req.body);
-    const foodData = await food.save();
+    const foodData = await food.save(); 
     res.status(200).json(foodData);
   } catch (error) {
     res.status(400).json(error.message);
