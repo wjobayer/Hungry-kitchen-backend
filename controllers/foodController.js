@@ -9,7 +9,16 @@ const getFood = async (req, res) => {
     res.status(400).json(error.message);
   }
 };
-
+// get single food api
+const getFoodById = async (req, res) => {
+  try {
+    const _id = req.params.id;
+    const singleFood = await Food.findOne(_id);
+    res.status(200).json(singleFood);
+  } catch (error) {
+    res.status(400).json(error.message);
+  }
+};
 // post Food api
 const addFood = async (req, res) => {
   try {
@@ -40,10 +49,10 @@ const foodUpdateById = async (req, res) => {
         },
       },
       {
-        new:true
-      },
+        new: true,
+      }
     );
-    const saveUpdateFood = await updateFood.save()
+    const saveUpdateFood = await updateFood.save();
     res.status(200).json(saveUpdateFood);
   } catch (error) {
     res.status(400).json(error.message);
@@ -66,4 +75,5 @@ module.exports = {
   addFood,
   foodUpdateById,
   foodDeleteById,
+  getFoodById,
 };

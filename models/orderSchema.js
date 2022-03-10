@@ -6,7 +6,7 @@ const orderSchema = mongoose.Schema(
     },
     userEmail: {
       type: String,
-      unique:true,
+      unique: true,
     },
     orderItem: {
       type: String,
@@ -20,11 +20,19 @@ const orderSchema = mongoose.Schema(
     finalPrice: {
       type: Number,
     },
-    status:{
-      type:String,
-      enum:["Pending", "Order Accepted", "Order on the way", "User Received"],
-      default:"Pending"
-    }
+    userLocation: [
+      {
+        latitude: Number,
+      },
+      {
+        longitude: Number,
+      },
+    ],
+    status: {
+      type: String,
+      enum: ["Pending", "Order Accepted", "Order on the way", "User Received"],
+      default: "Pending",
+    },
   },
   {
     timestamps: true,
