@@ -13,7 +13,7 @@ const getFood = async (req, res) => {
 const getFoodById = async (req, res) => {
   try {
     const _id = req.params.id;
-    const singleFood = await Food.findOne(_id);
+    const singleFood = await Food.findOne({_id});
     res.status(200).json(singleFood);
   } catch (error) {
     res.status(400).json(error.message);
