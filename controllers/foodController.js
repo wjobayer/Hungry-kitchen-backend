@@ -13,7 +13,7 @@ const getFood = async (req, res) => {
 const getFoodById = async (req, res) => {
   try {
     const _id = req.params.id;
-    const singleFood = await Food.findOne({_id});
+    const singleFood = await Food.findOne({ _id });
     res.status(200).json(singleFood);
   } catch (error) {
     res.status(400).json(error.message);
@@ -23,7 +23,7 @@ const getFoodById = async (req, res) => {
 const addFood = async (req, res) => {
   try {
     const food = Food(req.body);
-    const foodData = await food.save();  
+    const foodData = await food.save();
     res.status(200).json(foodData);
   } catch (error) {
     res.status(400).json(error.message);
@@ -39,14 +39,12 @@ const foodUpdateById = async (req, res) => {
     const updateFood = await Food.findByIdAndUpdate(
       { _id },
       {
-        $set: {
-          foodName,
-          foodCategory,
-          foodArea,
-          foodPrice,
-          foodPic,
-          foodDesc,
-        },
+        foodName,
+        foodCategory,
+        foodArea,
+        foodPrice,
+        foodPic,
+        foodDesc,
       },
       {
         new: true,
@@ -70,10 +68,21 @@ const foodDeleteById = async (req, res) => {
   }
 };
 
+const categoryByfood = async (req, res) => {
+  const category = req.query.category;
+  try {
+    const food = await Food.find({category});
+    res.status(200).json(food);
+  } catch (error) {
+    res.status(400).json(error.message);
+  }
+};
+
 module.exports = {
   getFood,
   addFood,
   foodUpdateById,
   foodDeleteById,
   getFoodById,
+  categoryByfood,
 };

@@ -7,7 +7,7 @@ const postUser = async (req, res) => {
     const userData = await user.save();
     res.status(201).json(userData);
   } catch (error) {
-    res.status(400).json(error.message);
+    res.status(400).send(error.message);
   }
 };
 
