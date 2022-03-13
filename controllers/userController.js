@@ -25,7 +25,7 @@ const getUser = async (req, res) => {
 const getUserByEmail = async (req, res) => {
   try {
     const email = req.params.email;
-    const user = await User.findByEmail(email);
+    const user = await User.findOne(email);
     res.status(201).json(user);
   } catch (error) {
     res.status(400).json(error.message);
@@ -72,4 +72,5 @@ module.exports = {
   getUser,
   getUserById,
   updateUserById,
+  getUserByEmail
 };
