@@ -57,9 +57,21 @@ const updateUserById = async (req, res) => {
   }
 };
 
+// get user by email
+const getUserByEmail = async (req, res) => {
+  try {
+    const email = req.params.email;
+    const user = await User.findOne({ email });
+    res.status(200).json(user);
+  } catch (error) {
+    res.status(400).json(error.message);
+  }
+};
+
 module.exports = {
   postUser,
   getUser,
   getUserById,
   updateUserById,
+  getUserByEmail,
 };
