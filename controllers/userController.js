@@ -21,6 +21,16 @@ const getUser = async (req, res) => {
   }
 };
 
+// get single user api by email
+const getUserByEmail = async (req, res) => {
+  try {
+    const email = req.params.email;
+    const user = await User.findByEmail(email);
+    res.status(201).json(user);
+  } catch (error) {
+    res.status(400).json(error.message);
+  }
+};
 // get single user api
 const getUserById = async (req, res) => {
   try {
